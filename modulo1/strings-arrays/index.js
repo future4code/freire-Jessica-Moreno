@@ -75,3 +75,14 @@ let tarefaConcluida = prompt("Você ja concluiu alguma dessas tarefas? se sim fo
 
 listaDeTarefas.splice(tarefaConcluida, 1)
 console.log(listaDeTarefas); */
+
+/* let frase = prompt("fale uma frase")
+let listaFrase = frase.split(" ")
+
+console.log(listaFrase); */
+
+const frutas = ["Banana", "Morango", "Abacaxi", "Laranja", "Ameixa"]
+
+const indice = frutas.indexOf("Abacaxi")
+
+console.log(indice, frutas.length)
