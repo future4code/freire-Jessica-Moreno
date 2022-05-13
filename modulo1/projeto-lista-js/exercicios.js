@@ -133,8 +133,8 @@ function checaRenovacaoRG() {
   const perguntaRG2 = Number (prompt("Qual seu ano de nascimento?"))
   const perguntaRG3 = Number (prompt("Em que ano emitiu o RG?"))
 
-  const idadeUsuario = Number (perguntaRG1) - Number (perguntaRG2)
-  const idadeRGUsuario = Number (perguntaRG1) - Number (perguntaRG3)
+  const idadeUsuario =perguntaRG1 - perguntaRG2
+  const idadeRGUsuario = perguntaRG1 - perguntaRG3
   
   const novoRGvinteanos = idadeUsuario <= 20 && idadeRGUsuario >= 5
   const novoRGcinquenta = idadeUsuario > 20 && idadeUsuario <= 50 && idadeRGUsuario >= 10
@@ -157,13 +157,13 @@ function checaAnoBissexto(ano) {
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
   // implemente sua lógica aqui
-  const maiorde18 = Number (prompt("Você tem mais de 18?"))
-  const ensinoMedio = Number (prompt("Você tem o ensino medio completo"))
-  const horarios = Number (prompt("Você possui disponibilidade exclusiva durante os horários do curso?"))
+  const maiorde18 = (prompt("Você tem mais de 18?"))
+  const ensinoMedio = (prompt("Você tem o ensino medio completo"))
+  const horarios = (prompt("Você possui disponibilidade exclusiva durante os horários do curso?"))
   
+  const aprovado1 = maiorde18.toLowerCase() == "sim"
+  const aprovado2 = ensinoMedio.toLowerCase() == "sim"
+  const aprovado3 = horarios.toLowerCase() == "sim"
 
-
-
-
-
+console.log(aprovado1 && aprovado2 && aprovado3)
 }
