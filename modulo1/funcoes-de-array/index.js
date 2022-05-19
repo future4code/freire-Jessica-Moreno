@@ -113,13 +113,15 @@ const pokemons = [
  ]
 
 //a. 
-const pokemonEmOrdemAlfabetica = pokemons.sort((pokemon)=>{
-    return pokemon
+const pokemonEmOrdemAlfabetica = pokemons.map((pokemon)=>{
+    return pokemon.nome
 })
 
-console.log(pokemonEmOrdemAlfabetica);
+console.log(pokemonEmOrdemAlfabetica.sort());
 
-// const tiposDePokemon = pokemons.filter((pokemon)=>{
-//     return pokemon.tipo
-// })
-// console.log(tiposDePokemon);
+const tiposDePokemon = pokemons.map((pokemon)=>{
+    return pokemon.tipo
+})
+
+const tipoDePokemonSemRepeticao =[...new Set(tiposDePokemon)]
+console.log(tipoDePokemonSemRepeticao);
