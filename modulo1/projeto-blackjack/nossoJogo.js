@@ -33,4 +33,4 @@
          console.log("O computador ganhou!")
       } 
    
-   } else{console.log("O jogo acabou")}
+   }  else{console.log("O jogo acabou")}
