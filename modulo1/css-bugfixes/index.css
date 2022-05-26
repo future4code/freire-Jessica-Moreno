@@ -106,6 +106,7 @@ table {
     width: 60%;
     text-align: center;
     margin: auto;
+    border-bottom: black;
 }
 
 td button {
@@ -129,12 +130,20 @@ td button:active {
     height: 100px;
 }
 
+input {
+    border-top: white;
+    border-left: white;
+    border-right: white;
+    border-bottom: 3px solid black;
+
+}
+
 
 #back-button {
     background-color: white;
     width: 100px;
     height: 20px;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     border-radius: 5px;
     font-size: 10px;
     color: black;
