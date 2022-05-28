@@ -1,0 +1,105 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* estilisação home */
+
+header{
+    background-color:blue;
+    display: flex;
+    align-items: center;
+}
+header img{
+    margin-left: 10px;
+    height: 50px;
+}
+header h1{
+    margin: auto;
+    color: #fff;
+}
+
+nav{
+    display: inline-block;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+        
+}
+
+.menu{
+    list-style:none;
+       
+}
+
+.menu li{
+    display: inline-block;
+    position:relative;
+    border-right:1px solid #c0c0c0;
+    
+}
+
+.menu li a{color:rgb(255, 255, 255); text-decoration:none; padding:5px 10px; display:block;}
+
+.menu li a:hover{
+background:#333;
+color:#fff;
+text-shadow:0px 0px 5px #fff;
+}
+
+.menu li  ul{
+    position:absolute;
+    top:25px;
+    left:0;
+    background-color:#fff;
+    display:none;
+}
+
+.menu li:hover ul, .menu li.over ul{display:block;}
+
+.menu li ul li{
+    background-color: #c0c0c0;
+    display:block;
+    width:150px;
+    }
+    
+
+main {
+    display: flex;
+    align-items: center;
+}
+
+.foto-home{
+    background-color: gray;
+    height: 590px;
+    width: 100%;
+
+}
+div.foto-home img{
+    height: 590px;
+    margin-left: 0;
+}
+
+.texto-home{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+    margin-top: 100px;
+}
+
+.texto-home
+
+.texto-home h2{
+    font-size: xx-large;
+    color: white;
+}
+
+footer{
+    background-color: black;
+    text-align: center;
+    padding: 8px;
+}
+footer img{
+    width: 30px;
+}
