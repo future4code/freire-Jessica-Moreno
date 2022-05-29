@@ -1,215 +1,281 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'VT323', monospace;
     color: white;
+    
 }
 
 
-body{
+body {
     background-color: black;
+    height: 99.8%;
+    width: 99.7%;
+    border: 2px solid blue;
+    /* text-align: center; */
 }
 
-header{
+header {
     height: 90px;
     display: flex;
     align-items: center;
     border-bottom: 2px solid blue;
 }
-header img{
+
+header img {
     margin-left: 10px;
     height: 50px;
 }
-header h1{
+
+header h1 {
     margin: auto;
     color: #fff;
 }
 
-nav{
-    display: inline-block;       
-}
-
-.menu{
-    list-style:none;
-       
-}
-
-.menu li{
+nav {
     display: inline-block;
-    position:relative;
-    
     
 }
 
-.menu li a{
-    color:yellow; 
-    text-decoration:none; 
-    padding:5px 10px; 
-    display:block;
+.menu {
+    list-style: none;
+
 }
 
-.menu li a:hover{
-background:blue;
-color:#fff;
-text-shadow:0px 0px 5px #fff;
+.menu li {
+    display: inline-block;
+    position: relative;
+    text-align: center;
 }
 
-.menu li  ul{
-    position:absolute;
-    top:25px;
-    left:0;
-    background-color:#fff;
-    display:none;
+.menu li a {
+    color: yellow;
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
 }
 
-.menu li:hover ul, .menu li.over ul{display:block;}
-
-.menu li ul li{
-    background-color: #c0c0c0;
-    display:block;
-    width:150px;
+.menu li a:hover {
+    background: blue;
+    color: #fff;
+    
 }
 
-main{
+.menu li ul {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    display: none;
+}
+
+.menu li:hover ul,.menu li.over ul {
+    display: block;
+}
+
+.menu li ul li {
+    background-color: gray;
+    display: block;
+    width: 150px;
+}
+
+main {
     border-top: 2px solid blue;
+    height: 590px;
 }
 
-footer{
-        background-color: black;
-        text-align: center;
-        padding: 8px;
-        border-top: 2px solid blue;
-        position: fixed bottom;
+footer {
+    width: 98.9%;
+    text-align: center;
+    padding: 8px;
+    border-top: 2px solid blue;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
-footer img{
-        width: 30px;
+
+footer img {
+    width: 30px;
+    margin-right: 20px;
 }
-    
+
 /* estilização home */
 
 main.estilo-home {
     display: flex;
     align-items: center;
-    
-}
-
-.foto-home{
-    
-    height: 590px;
-    width: 100%;
 
 }
-div.foto-home img{
-    height: 590px;
-    float: right;
-    text-align: right;
+
+
+.box-de-texto {
+    display: inline-block;
+    width: 600px;
+    height: 400px;
+    background-color: grey;
+    border-radius: 10px;
+    border: 2px solid blue;
+    margin-top: 50px;
+    margin-left: 200px;
 }
 
-.texto-home{
+.texto-home {
     display: inline-block;
     vertical-align: top;
     margin-left: 50px;
     margin-top: 100px;
 }
 
-.texto-home
-
-.texto-home h2{
-    font-size: xx-large;
+.texto-home h2 {
+    font-size: 50px;
     color: white;
 }
-/* estilização projetos */
+.texto-home p{
+    font-size: 30px;
+    margin-top: 8px;
+}
+.texto-amarelo{
+    color: yellow;
+}
+
+.foto-home {
+    height: 500px;
+    width: 100%;
+}
+
+div.foto-home img {
+    height: 500px;
+    float: right;
+    text-align: right;
+}
 
 /* estilização sobre mim */
 
-.estilo-sobremim{
-    display: inline-flexbox;
-
-}
-.estilo-sobremim h2{
+.foto-sobremim img{
+    width: 150px;
+    border-radius: 100px;
     margin-left: 50px;
+    margin-top: 20px;
 }
 
-div table{
+.estilo-sobremim{
+    height: 590px;
+}
+#titulo-sobremim {
+    position: relative;
+    top: 20px;
+}
+
+.estilo-sobremim h2 {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.blocos-inline {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+div table {
     width: 300px;
-    height: 150px;
+    height: 250px;
     padding: 10px 15px;
-    display: inline-block;
+    display: flex;
     background-color: #c0c0c0;
     border: 2px solid blue;
     border-radius: 10px;
     margin-top: 25px;
     margin-left: 50px;
 }
-table th{
+
+table th {
     font-size: 20px;
     padding-bottom: 10px;
     color: blue;
-    
-}table td{
+
+}
+
+table td {
     font-size: 18px;
     color: black;
 }
 
+/* estilização projetos */
+.estilo-projetos{
+    height: 500px;
+}
+
+.estilo-projetos h1{
+    margin-left: 50px;
+}
+
+.estilo-projetos div{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+
+
 
 /* estilização contato */
 
-.estilo-contato{
-    height: 490px;
-    border-top: 2px solid blue;
-    
+main.estilo-contato {
+    display: block;
+    height: 500px;
+    text-align: center;
+
+
 }
-.estilo-contato h1{
+
+.estilo-contato h1 {
     margin: 20px auto;
-    text-align: center;    
     color: white;
 }
 
 form {
     display: block;
     text-align: center;
-    margin: 0 auto;
+    margin: 10px auto;
     height: 300px;
     width: 600px;
-    padding: 1em;
+    padding: 2em;
     border: 1px solid blue;
     border-radius: 1em;
 }
 
-form div + div {
-    margin-top: 1em;
+form div+div {
+    margin-top: 2em;
 }
 
 label {
     color: yellow;
     display: inline-block;
-    width: 50px;
+    width: 60px;
     text-align: right;
 }
 
-input, textarea {
+input,textarea {
     height: 30px;
     width: 300px;
     -moz-box-sizing: border-box;
-    box-sizing: border-box;    
+    box-sizing: border-box;
     border: 1px solid blue;
 }
 
 textarea {
-    
+
     vertical-align: top;
     height: 10em;
     resize: vertical;
 }
 
-.botao-contato button{
+.botao-contato button {
     width: 100px;
     background-color: yellow;
     color: blue;
     border: 2px solid blue;
 }
 
-.botao-contato button:hover{
+.botao-contato button:hover {
 
     background-color: blue;
     color: yellow;
