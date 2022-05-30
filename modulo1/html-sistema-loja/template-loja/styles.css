@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: rgb(208, 165, 254);
+    text-align: center;
+    height: 10vh;
+    padding-top: 20px;
+
+}
+nav{
+    color: #ffffff;
+    text-align: center;
+    height: 5vh;
+    padding-top: 5px;
+}
+
+table {
+    width: 100%;
+}
+
+.segundo-titulo{
+    margin-bottom: 10px;
+}
+
+.foto-produtos {
+    height: 100px;
+}
+
+
+.tabela-produtos{
+    background-color: rgb(244, 232, 255);
+    text-align: center;
+    margin-left: 10px;
+}
+
+
+footer {
+    background-color: rgb(208, 165, 254);
+    text-align: center;
+    padding-bottom: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
