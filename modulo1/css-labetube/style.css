@@ -14,7 +14,7 @@ header {
     display: grid;
     grid-template-columns: 5fr 1fr;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 45px;
 
 }
 
@@ -52,6 +52,19 @@ section {
 .card p{
     padding: 10px 10px;
     text-decoration: none;
+    color: black;
+}
+.card a{
+    text-decoration: none;
+}
+
+.pagina-de-reproducao{
+    display: grid;
+    grid-template-rows:1fr 8fr 2fr;
+    
+}
+.pagina-de-reproducao video{
+    width: 97%;
 }
 
 footer {
