@@ -70,13 +70,14 @@ class Post extends React.Component {
   }
 
   onClickSalvo = () =>{
-    this.setState({
-      salvo: !this.state.salvo
-    })
-  }
-  
+    if(this.state.salvo === false){
+      this.setState({salvo: true})
+    }else{
+      this.setState({salvo: false})
 
-  
+    }
+  }
+    
   onClickComentario = () => {
     this.setState({
       comentando: !this.state.comentando
@@ -128,7 +129,7 @@ class Post extends React.Component {
           valorContador={this.state.numeroCurtidas}
         />
 
-        <iconeComContador
+        <IconeComContador
           icone = {iconeSalvo}
           onClickIcone = {this.onClickSalvo}
         />
