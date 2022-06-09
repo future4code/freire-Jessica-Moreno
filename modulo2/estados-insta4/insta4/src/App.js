@@ -43,6 +43,8 @@ class App extends React.Component {
 
     const copiaListaPost = [... this.state.posts, novoPost]
     this.setState({posts: copiaListaPost})
+    this.setState({valorInputNomeUsuario:"", valorInputNomeUsuario:"", valorInputFotoPost:""})
+
 
   }
   onChangeInputNomeUsuario =(nome)=>{
