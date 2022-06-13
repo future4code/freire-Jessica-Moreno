@@ -20,7 +20,7 @@ class App extends React.Component {
       case 4:
         return <Agradecimento/>
       default:
-        break;
+        return <Agradecimento/>
 
     }
   }
@@ -34,8 +34,10 @@ class App extends React.Component {
 
     return (
       <div>
-        {this.renderizaEtapa()}
+        {this.renderizaEtapa()}       
+
         <button onClick={this.proximaEtapa}>Próxima etapa</button>
+              
 
       </div>
     );
