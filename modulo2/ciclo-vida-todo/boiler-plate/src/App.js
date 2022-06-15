@@ -57,7 +57,8 @@ class App extends React.Component {
       completa: false
     }
     const copiaTarefas = [...this.state.tarefas, novaTarefa]
-    this.setSate = ({tarefas: copiaTarefas})
+    this.setState({tarefas: copiaTarefas})
+    this.setState({inputValue: ''})
 
   }
 
@@ -78,7 +79,7 @@ class App extends React.Component {
   }
 
   onChangeFilter = (event) => {
-    this.setState = ({filtro: event.target.value})
+    this.setState({filtro: event.target.value})
 
   }
 
@@ -105,7 +106,7 @@ class App extends React.Component {
 
         <InputsContainer>
           <label>Filtro</label>
-          <select value={this.state.filter} onChange={this.onChangeFilter}>
+          <select value={this.state.filtro} onChange={this.onChangeFilter}>
             <option value="">Nenhum</option>
             <option value="pendentes">Pendentes</option>
             <option value="completas">Completas</option>
