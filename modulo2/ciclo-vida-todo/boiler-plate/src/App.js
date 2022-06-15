@@ -9,7 +9,7 @@ const TarefaList = styled.ul`
 
 const Tarefa = styled.li`
   text-align: left;
-  text-decoration: ${({completa}) => (completa ? 'line-through' : 'none')};
+  text-decoration: ${({ completa }) => (completa ? 'line-through' : 'none')};
 `
 
 const InputsContainer = styled.div`
@@ -19,11 +19,24 @@ const InputsContainer = styled.div`
 `
 
 class App extends React.Component {
-    state = {
-      tarefas: [],
-      inputValue: '',
-      filtro: ''
-    }
+  state = {
+    tarefas: [
+      {
+        id: Date.now(),
+        texto: 'Escovar os dentes',
+        completa: false
+      },
+      {
+        id: Date.now(),
+        texto: 'Comer',
+        completa: true
+      }
+    ],
+    inputValue: '',
+    filtro: ''
+  }
+
+  
 
   componentDidUpdate() {
 
@@ -34,18 +47,38 @@ class App extends React.Component {
   };
 
   onChangeInput = (event) => {
-
+    this.setState({inputValue: event.target.value})
   }
 
   criaTarefa = () => {
+    const novaTarefa = {
+      id: Date.now(),
+      texto: this.state.inputValue,
+      completa: false
+    }
+    const copiaTarefas = [...this.state.tarefas, novaTarefa]
+    this.setSate = ({tarefas: copiaTarefas})
 
   }
 
   selectTarefa = (id) => {
+    const copiaTarefas = this.state.tarefas.map((tarefa) =>{
+      if (id === tarefa.id){
+        const novaTarefa = {
+          ...tarefa,
+          completa: !tarefa.completa
+        }
+        return novaTarefa
+      }else {
+        return tarefa
+      }
+    })
 
+    this.setState = ({tarefas: copiaTarefas})
   }
 
   onChangeFilter = (event) => {
+    this.setState = ({filtro: event.target.value})
 
   }
 
@@ -65,10 +98,10 @@ class App extends React.Component {
       <div className="App">
         <h1>Lista de tarefas</h1>
         <InputsContainer>
-          <input value={this.state.inputValue} onChange={this.onChangeInput}/>
+          <input value={this.state.inputValue} onChange={this.onChangeInput} />
           <button onClick={this.criaTarefa}>Adicionar</button>
         </InputsContainer>
-        <br/>
+        <br />
 
         <InputsContainer>
           <label>Filtro</label>
