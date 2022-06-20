@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header>div>img {
+    height: 15px;
+}
+header>div{
+    display: flex;
+}
+
+header {
+    color: white;
+    background-color: red;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    align-items: center;
+    padding-left: 45px;
+
+}
+
+main{
+    
+    background-color:gray;
+    padding-left: 40px;
+    height: 60vw;
+    
+
+}
+
+section {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 5% 1%
+
+}
+
+
+.card {
+    border-radius: 10px;
+    margin-top: 10%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    height: 100%;
+    width: 90%;
+
+
+
+}
+.card video{
+    border-radius: 10px;
+    width:100%;
+}
+
+.card p{
+    padding: 10px 10px;
+    text-decoration: none;
+    color: black;
+}
+.card a{
+    text-decoration: none;
+}
+
+.pagina-de-reproducao{
+    display: grid;
+    grid-template-rows:1fr 8fr 2fr;
+    
+}
+.pagina-de-reproducao video{
+    width: 97%;
+}
+
+footer {
+    display: grid;
+    height: 70px;
+    align-items: center;
+    text-align: center;
+    background-color: red;
+    color: white;
+    position: static;
+    margin-bottom: 0;
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width : 400px) {
+
+    main{
+        height: 100%;
+    }
+
+    section{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .card{
+        align-items: flex-start;
+    }
+    
+}
