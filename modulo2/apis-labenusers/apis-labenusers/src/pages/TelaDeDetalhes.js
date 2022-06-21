@@ -19,9 +19,9 @@ class TelaDeDetalhes extends React.Component {
           }
         )
     
-        request
+        
           .then((response)=>{
-            this.setState({lista: response.data.result.list})
+            this.setState({lista: response.data})
           })
           .catch((error)=>{
             alert(error.message)
@@ -29,13 +29,16 @@ class TelaDeDetalhes extends React.Component {
       }
 
     render() {
+       const listaAtualizada = this.state.lista.map((usuario) => {
+            return <div key={usuario.id}>
+                {usuario.name}<button>-</button>
+            </div>
+        })
         return (
             <div>
                 <h1>Tela de Detalhes</h1>
                 <section>
-                    {this.lista.map((usuario) => {
-                        return <p key={usuario.id}>{usuario.nome}</p>;
-                    })}
+                   {listaAtualizada}
                 </section>
                 <button onClick={this.props.onClickCadastrar}>Trocar de Tela</button>
             </div>
