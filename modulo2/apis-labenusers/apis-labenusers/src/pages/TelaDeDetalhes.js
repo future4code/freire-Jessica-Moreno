@@ -28,10 +28,24 @@ class TelaDeDetalhes extends React.Component {
           })
       }
 
+      deletarUsuario = (id) =>{
+        const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+        axios.delete (url, {
+          headers: {Authorization: "jessica-moreno-freire"}
+        })
+        .then((response)=>{
+          alert("usuario deletado")
+          this.getUsers()
+        })
+        .catch((error) =>{
+          alert(error.message)
+        })
+      }
+
     render() {
        const listaAtualizada = this.state.lista.map((usuario) => {
             return <div key={usuario.id}>
-                {usuario.name}<button>-</button>
+                {usuario.name}<button onClick={()=>this.deletarUsuario(usuario.id)}>-</button>
             </div>
         })
         return (
