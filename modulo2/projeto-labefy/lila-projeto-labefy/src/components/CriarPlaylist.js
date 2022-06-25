@@ -1,10 +1,21 @@
 import React from "react";
 import axios from "axios";
+import styled from "styled-components";
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+const ButtonPegarPlaylist = styled.button``
+const CriarContainer = styled.div``
+
 
 class CriarPlaylist extends React.Component {
 
     state = {
-        playlist: [],
         inputName: "",
     }
 
@@ -22,24 +33,31 @@ class CriarPlaylist extends React.Component {
             headers: { Authorization: "jessica-moreno-freire" }
         })
             .then((res) => {
-                console.log("playlist criada")
+                alert(`Sucesso! Playlist ${this.state.inputName}criada`)
             })
             .catch((err) => {
-                alert("Ja existe uma playlist com esse nome")
+                alert("Erro ao criar playlist")
             })
     }
 
     render() {
         return (
-            <div>
-                <h1>Crie sua playlist</h1>
-                <input
-                    value={this.state.inputName}
-                    onChange={this.handleName}
-                    placeholder="Nome da Playlist"
-                />
-                <button onClick={this.createPlaylist}>Criar</button>
-            </div>
+            <Body>
+
+                <CriarContainer>
+                    <h1>Bem Vinde!!</h1>
+                    <h2>Crie sua playlist</h2>
+                    <input
+                        value={this.state.inputName}
+                        onChange={this.handleName}
+                        placeholder="Nome da Playlist"
+                    />
+                    <button onClick={this.createPlaylist}>Criar</button>
+                </CriarContainer>
+                <ButtonPegarPlaylist onClick={this.props.changeSection}>
+                    Veja suas Playlists
+                </ButtonPegarPlaylist>
+            </Body>
         )
     }
 }

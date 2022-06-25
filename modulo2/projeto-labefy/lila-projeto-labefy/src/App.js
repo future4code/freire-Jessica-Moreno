@@ -10,16 +10,41 @@ display:flex;
 background-color: grey;
 width:100%
 `
+const Header = styled.div``
+const Main = styled.div``
 
-function App() {
-  return (
-    <Body>
-      
-        <CriarPlaylist/>
-        <PegarPlaylist/>
-      
-    </Body>
-  );
+class App extends React.Component {
+  state = {
+    section: "criarPlaylist"
+  }
+
+  changeSection = () =>{
+    if(this.state.section === "criarPlaylist") {
+      this.setState({section: "pegarPlaylist"})
+    }else {
+      this.setState({section:"criarPlaylist"})
+    }
+  }
+  render() {
+
+    return (
+      <Body>
+        <Header></Header>
+        <Main>
+          {this.state.section === "criarPlaylist" ? (
+            <CriarPlaylist changeSection ={this.changeSection}/>
+          ):(
+            <PegarPlaylist changeSection={this.changeSection} />
+          )}
+        </Main>
+
+
+        
+        
+
+      </Body>
+    );
+  }
 }
 
 export default App;
