@@ -20,6 +20,7 @@ const ButtonPegarPlaylist = styled.button`
     font-size: 30px;
     :hover{
         background-color:#838F3B;
+        cursor: pointer;
     }
 `
 const CriarContainer = styled.div`
