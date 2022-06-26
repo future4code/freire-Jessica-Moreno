@@ -6,13 +6,51 @@ import AdicinarMusica from "./AdicionarMusica"
 const Body = styled.div`
   margin-left: 3%;
   margin-right: 19%;
-`;
+  
+`
+const TituloVerPlaylist = styled.h2`
+    font-size: 30px;
+    margin: 10px 0;
+`
+const Playlists = styled.div`
+display:flex;
+width:120%;
+justify-content: space-between;
+margin: 20px 0;
+border-bottom:2px solid white ;
+:hover{
+    background-color:#838F3B;
+        cursor: pointer;
 
-const ButtonBack = styled.button``
+}
+`
 
-const Playlists = styled.div``
+const ButtonDelete = styled.button`
+    border: none;
+    height: 20px;
+    width:100px;
+    background-color:#A117FC;
+    color:white;
+    font-size: 15px;
+    :hover{
+        background-color:#CC80FF;
+        cursor: pointer;
+    }`
 
-const ButtonDelete = styled.button``
+
+const ButtonBack = styled.button`
+border: none;
+    height: 50px;
+    width:100px;
+    background-color:#A117FC;
+    color:white;
+    font-size: 30px;
+    :hover{
+        background-color:#838F3B;
+        cursor: pointer;
+    }`
+
+
 
 
 class PegarPlaylist extends React.Component {
@@ -68,28 +106,29 @@ class PegarPlaylist extends React.Component {
         }
     }
     render() {
-        
+
         return (
             <Body>
                 {this.state.page === "pegarPlaylist" ? (
                     <div>
+                        <TituloVerPlaylist>Lista de Playlist</TituloVerPlaylist>
+
+                        {this.state.lista.map((playlist) => {
+                            return (
+
+                                <Playlists
+                                    playlistId={playlist.id}
+                                    onClick={() => this.changePage(playlist.id)}
+                                >{playlist.name}
+                                    <ButtonDelete onClick={() => this.deletePlaylist(playlist.id)}>
+                                        deletar
+                                    </ButtonDelete>
+                                </Playlists>
+
+                            )
+                        })}
+
                         <ButtonBack onClick={this.props.changeSection}>voltar</ButtonBack>
-                        <ul>
-                            <h2>Lista de Playlist</h2>
-                            {this.state.lista.map((playlist) => {
-                                return (
-                                    <li>
-                                        <Playlists
-                                            playlistId={playlist.id}
-                                            onClick={() => this.changePage(playlist.id)}
-                                        >{playlist.name}</Playlists>
-                                        <ButtonDelete onClick={() => this.deletePlaylist(playlist.id)}>
-                                            deletar
-                                        </ButtonDelete>
-                                    </li>
-                                )
-                            })}
-                        </ul>
                     </div>
                 ) : (
                     <AdicinarMusica

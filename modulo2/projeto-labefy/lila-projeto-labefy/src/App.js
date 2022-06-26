@@ -2,15 +2,26 @@ import React from "react";
 import styled from "styled-components";
 import CriarPlaylist from "./components/CriarPlaylist";
 import PegarPlaylist from "./components/PegarPlaylist";
+import GlobalStyle from "./styles/global";
+
 
 const Body = styled.div`
-margin:0;
-padding:0;
-display:flex;
-background-color: grey;
-width:100%
+background-color:black;
+color:White;
+height:100vh;
 `
-const Header = styled.div``
+
+const Header = styled.div`
+    display:flex;
+    justify-content: center;
+    height: 150px;
+    background-color:#6500A8;
+    font-size:30px;
+    align-items:center ;
+    color:#BAD600;
+
+    
+    `
 const Main = styled.div``
 
 class App extends React.Component {
@@ -29,7 +40,10 @@ class App extends React.Component {
 
     return (
       <Body>
-        <Header></Header>
+        
+        <Header>
+          <h1><strong>Labefy</strong></h1>
+        </Header>
         <Main>
           {this.state.section === "criarPlaylist" ? (
             <CriarPlaylist changeSection ={this.changeSection}/>
@@ -41,7 +55,7 @@ class App extends React.Component {
 
         
         
-
+        <GlobalStyle/>
       </Body>
     );
   }

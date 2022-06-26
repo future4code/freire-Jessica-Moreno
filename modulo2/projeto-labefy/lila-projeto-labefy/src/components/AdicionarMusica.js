@@ -2,18 +2,65 @@ import React from "react";
 import axios from "axios"
 import styled from "styled-components";
 
-const Button = styled.button`
-  height: 25px;
-  width: 70px;
-  :hover {
-    cursor: pointer;
-  }
-`;
+;
 const Body = styled.div`
   margin-left: 3%;
+  >div>h2{
+    margin:10px 0;
+  }
+  
 `;
 
+const Input = styled.div`
+>p{
+    font-size:30px;
+    margin: 10px 0;
+}
+>input{
+    width:300px;
+    height:35px;
+    font-size:20px;
+    padding:5px
+}
+`
+const Button = styled.button`
+  border: none;
+  height: 35px;
+  width:100px;
+  background-color:#A117FC;
+  color:white;
+  font-size: 20px;
+  :hover{
+      background-color:#838F3B;
+  
+    cursor: pointer;
+  }
+`
+
+const DeletarMusica = styled.button`
+border: none;
+    height: 20px;
+    width:20px;
+    background-color:#A117FC;
+    color:white;
+    font-size: 15px;
+    :hover{
+        background-color:#838F3B;
+        cursor: pointer;
+    }
+`
+
 const ButtonBack = styled.button`
+border: none;
+    height: 50px;
+    width:100px;
+    background-color:#A117FC;
+    color:white;
+    font-size: 30px;
+    :hover{
+        background-color:#838F3B;
+        cursor: pointer;
+    }
 `;
 const Music = styled.div``
 class AdicionarMusica extends React.Component {
@@ -103,13 +150,17 @@ class AdicionarMusica extends React.Component {
     render(){
         const listaDeMusica = this.state.musicas.map((music)=>{
             return <div key={music.id}>
-                <p>Artista:{music.nomeArtista} Musica: {music.nomeMusica}</p>
-                <audio src={music.linkMusica}controls></audio>
-                <button onClick={()=> this.removeTrackFromPlaylist(this.props.playlistId, music.id)}>X</button>
+                <p>Artista: {music.name} <br/>Musica: {music.artist}</p>
+                <audio src={music.link}controls></audio>
+                <DeletarMusica onClick={()=> this.removeTrackFromPlaylist(this.props.playlistId, music.id)}>X</DeletarMusica>
             </div>
         })
-        const playlistEdit = (
-            <div>
+        
+        
+        return(
+            <Body>
+                
+                <Input>
                 <p>Adicione música a playlist</p>
                 <input
                 placeholder="Nome da Musica"
@@ -127,16 +178,12 @@ class AdicionarMusica extends React.Component {
                 onChange={this.handleLinkMusica}
                 />
                 <Button onClick={this.addTrackToPlaylist}>Salvar</Button>
-            </div>
-        )
-        return(
-            <Body>
-                <ButtonBack onClick={this.props.changePage}>Voltar</ButtonBack>
-                <div>{playlistEdit}</div>
+                </Input>
                 <div>
                     <h2>Músicas</h2>
                     <Music>{listaDeMusica}</Music>
                 </div>
+                <ButtonBack onClick={this.props.changePage}>Voltar</ButtonBack>
             </Body>
         )
     }
