@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-function LoginPage () {
+function TripListPage () {
     const navigate = useNavigate()
-    return (
+
+    return(
         <div>
-            <h1>login</h1>
+            <h1>Lista</h1>
         </div>
     )
 }
 
-export default LoginPage
+export default TripListPage
