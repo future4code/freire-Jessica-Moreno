@@ -4,7 +4,7 @@ import { countries } from "../../../constants/Countries";
 import { useForm } from "../../../hooks/useForm";
 import { sendApplication } from "../../../service/request";
 import useRequestData from "../../../hooks/useRequestData"
-
+import { goBack } from "../../../routes/cordinator";
 
 function ApplicationPage() {
     const navigate = useNavigate()
@@ -88,6 +88,7 @@ function ApplicationPage() {
                 </select>
                 <button type={"submit"}>Enviar</button>
             </form>
+            <button onClick={() => goBack(navigate) }>voltar</button>
         </div>
     )
 }

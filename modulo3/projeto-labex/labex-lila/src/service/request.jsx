@@ -6,6 +6,7 @@ export const fazerLogin = (body, navigate) =>{
     axios
     .post(`${BASE_URL}/login`, body)
     .then((res) =>{
+        console.log("deu certo", res.data) 
         localStorage.setItem("token", res.data.token)
         goToAdmHomePage(navigate)
     })
@@ -14,7 +15,7 @@ export const fazerLogin = (body, navigate) =>{
     
 }
 
-export const sendApplication = (body, tripId, clear ) => {
+export const sendApplication = (body, tripId, clear) => {
     
     axios
     .post(`${BASE_URL}/trips/${tripId}/apply`, body)
@@ -24,4 +25,16 @@ export const sendApplication = (body, tripId, clear ) => {
 
     })
     .catch((err)=> alert("erro"))
+}
+
+export const deleteATrip = (id, getTrip) => {
+    axios
+    .delete(`${BASE_URL}/trips/${id}`,{
+        headers: {auth: localStorage.getItem('token')}
+    })
+    .then(()=>{
+        alert('viagem deletada')
+        getTrip()
+    })
+    .catch((err)=> err.response.data.message)
 }

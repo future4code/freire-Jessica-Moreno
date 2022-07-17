@@ -2,10 +2,11 @@ import React from "react";
 import { useForm } from "../../hooks/useForm";
 import { useNavigate } from "react-router-dom";
 import { fazerLogin } from "../../service/request";
+import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 
 function LoginPage() {
-    
+    useProtectedPage()
     const { form, onChange } = useForm({ email: "", password: "" })
     const navigate = useNavigate()
     const onClickLogin = (e) =>{
