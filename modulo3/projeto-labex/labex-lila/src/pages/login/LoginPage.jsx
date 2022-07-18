@@ -5,13 +5,16 @@ import { fazerLogin } from "../../service/request";
 import { useProtectedPage } from "../../hooks/useProtectedPage";
 
 
+
 function LoginPage() {
     useProtectedPage()
     const { form, onChange } = useForm({ email: "", password: "" })
     const navigate = useNavigate()
+     
     const onClickLogin = (e) =>{
         e.preventDefalt()
         fazerLogin(form, navigate)
+        console.log("foi");
         
     }
     return (
@@ -36,7 +39,7 @@ function LoginPage() {
                     onChange={onChange}
                     required
                 />
-                <button type={"submit"}>Entrar</button>
+                <button type="submit">Entrar</button>
             </form>
 
         </div>

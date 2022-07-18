@@ -11,7 +11,6 @@ export const fazerLogin = (body, navigate) =>{
         goToAdmHomePage(navigate)
     })
     .catch((err)=> alert(err.response.data.message))
-
     
 }
 
