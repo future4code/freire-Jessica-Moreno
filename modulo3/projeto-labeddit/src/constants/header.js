@@ -1,0 +1,1 @@
+export const header = {Authorization: lecalStorage.getItem("token")}

@@ -1,15 +1,28 @@
 import React from "react";
 import { Header } from "../../components/Header";
 import useForm from "../../hooks/useForm";
+import { URL_BASE } from "../../constants/url";
+import axios from "axios";
 
 export const CadastrePage = () => {
     const {form, onChange, clear} = useForm({username:"", email:"", password:""})
 
-    const onClickCadastro = (e) => {
-        e.preventDefault()
-        console.log("cadastro realizado com sucesso");
+    const singUp = () => {
+        axios.post(`${URL_BASE}/users/signup`, form)
+        .then((res)=>{
+            localStorage.setItem("token", res.data.token)
+            clear()
+            console.log("cadastro realizado com sucesso");
+        })
+        .catch((err)=>alert(err.data))
     }
 
+    const onClickCadastro = (e) => {
+        e.preventDefault()
+        singUp()
+        
+    }
+    console.log(form);
     return(
         <>
         <Header/>
