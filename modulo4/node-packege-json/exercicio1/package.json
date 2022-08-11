@@ -1,16 +1,12 @@
 {
-  "name": "aula-node",
+  "name": "exercicio1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "node ./index.js"
   },
-  "keywords": [
-    "aula",
-    "node",
-    "json"
-  ],
+  "keywords": [],
   "author": "Lila Moreno",
   "license": "ISC"
 }
