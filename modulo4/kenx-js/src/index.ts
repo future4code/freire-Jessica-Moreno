@@ -18,9 +18,6 @@ const server = app.listen(process.env.PORT || 3003, () => {
     }
   });
 
-// raw devolve resposta diretamente do banco de dados
-
-
 const getActorByName = async (name: string): Promise<any> => {
     const result = await connection.raw(`
         SELECT * FROM Actor WHERE id = "${name}"
@@ -29,7 +26,7 @@ const getActorByName = async (name: string): Promise<any> => {
     
     
 }
-console.log(getActorByName("Maria Fernanda Cândido"));
+
 
 const actorByGender = async (gender: string): Promise<any> => {
     const result = await connection.raw(`
@@ -38,3 +35,11 @@ const actorByGender = async (gender: string): Promise<any> => {
     const count = result[0][0].count;
     return count;
 }
+
+const updateActor = async (id: string, salary: number): Promise<any> => {
+  await connection("Actor")
+    .update({
+      salary: salary,
+    })
+    .where("id", id);
+};
