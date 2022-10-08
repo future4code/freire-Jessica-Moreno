@@ -12,7 +12,7 @@ export const ContainerSection = styled.section`
 `
 
 export function OrderSummary (props) {
-    const { cart } = props
+    const { cart, removeFromCart } = props
 
     const calculateTotal = () => {
         const total = cart.reduce(
@@ -32,7 +32,11 @@ export function OrderSummary (props) {
 
             {cart.map((pizza) => {
                 return (
-                    <OrderItemCard key={pizza.name} pizza={pizza} />
+                    <OrderItemCard
+                        key={pizza.name}
+                        pizza={pizza}
+                        removeFromCart={removeFromCart}
+                    />
                 )
             })}
 

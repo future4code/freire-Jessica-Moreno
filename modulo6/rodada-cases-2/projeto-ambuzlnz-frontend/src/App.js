@@ -1,4 +1,4 @@
-import { useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { OrderSummary } from "./screens/OrdersSumarry";
 import { PizzasMenu } from "./screens/PizzasMenu";
@@ -9,17 +9,17 @@ export const ContainerMain = styled.main`
 
 function App() {
   const [cart, setCart] = useState([])
-  
-  const addToCart = (pizzaToAdd)=> {
-    const foundIndex = cart.findIndex((pizzaInCart)=>{
+
+  const addToCart = (pizzaToAdd) => {
+    const foundIndex = cart.findIndex((pizzaInCart) => {
       return pizzaInCart.name === pizzaToAdd.name
     })
-    if(foundIndex >= 0) {
+    if (foundIndex >= 0) {
       const newCart = [...cart]
       newCart[foundIndex].quantity += 1
 
       setCart(newCart)
-    }else {
+    } else {
       const newCart = [...cart]
       const newPizza = {
         name: pizzaToAdd.name,
@@ -32,11 +32,31 @@ function App() {
     }
   }
 
+  const removeFromCart = (pizzaToRemove) => {
+    if (pizzaToRemove.quantity > 1) {
+      const newCart = cart.map((pizza) => {
+        if (pizza.name === pizzaToRemove.name) {
+          pizza.quantity -= 1
+        }
+        return pizza
+      })
+      setCart(newCart)
+    } else {
+      const newCart = cart.filter((pizza)=>{
+        return pizza.name !==pizzaToRemove.name
+      })
+      setCart(newCart)
+    }
+  }
+
   return (
     <ContainerMain>
-      <PizzasMenu addToCart =
-      {addToCart}/>
-      <OrderSummary cart = {cart}/>
+      <PizzasMenu addToCart=
+        {addToCart} />
+      <OrderSummary
+        cart={cart}
+        removeFromCart={removeFromCart}
+      />
     </ContainerMain>
   );
 }
