@@ -1,5 +1,7 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { BASE_URL } from "./constants";
 import { OrderSummary } from "./screens/OrdersSumarry";
 import { PizzasMenu } from "./screens/PizzasMenu";
 
@@ -9,6 +11,11 @@ export const ContainerMain = styled.main`
 
 function App() {
   const [cart, setCart] = useState([])
+  const [total, setTotal] = useState(0)
+
+  useEffect(()=>{
+    calculateTotal()
+  },[cart])
 
   const addToCart = (pizzaToAdd) => {
     const foundIndex = cart.findIndex((pizzaInCart) => {
@@ -49,6 +56,28 @@ function App() {
     }
   }
 
+  
+  const calculateTotal = () => {
+    const total = cart.reduce(
+        (acc, item) => acc + (item.price * item.quantity),
+        0
+    )
+
+    setTotal(total)
+}
+
+  const submitOrder = async () => {
+      try{
+        const body = {
+          pizzas: cart
+        }
+        const res = await axios.post(`${BASE_URL}/orders`, body)
+        alert(res.data.order)
+      } catch(err) {
+        console.log(err);
+      }
+  }
+
   return (
     <ContainerMain>
       <PizzasMenu addToCart=
@@ -56,6 +85,8 @@ function App() {
       <OrderSummary
         cart={cart}
         removeFromCart={removeFromCart}
+        total = {total}
+        submitOrder = {submitOrder}
       />
     </ContainerMain>
   );

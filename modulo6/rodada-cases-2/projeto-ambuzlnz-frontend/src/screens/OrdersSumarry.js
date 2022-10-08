@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import {OrderItemCard} from "../components/OrderItemCart"
+import { OrderItemCard } from "../components/OrderItemCart"
 
 export const ContainerSection = styled.section`
     width: 30em;
@@ -11,20 +11,10 @@ export const ContainerSection = styled.section`
     }
 `
 
-export function OrderSummary (props) {
-    const { cart, removeFromCart } = props
+export function OrderSummary(props) {
+    const { cart, removeFromCart, total, submitOrder } = props
 
-    const calculateTotal = () => {
-        const total = cart.reduce(
-            (acc, item) => acc + (item.price * item.quantity),
-            0
-        )
 
-        return total.toLocaleString(
-            'pt-br',
-            { style: 'currency', currency: 'USD' }
-        )
-    }
 
     return (
         <ContainerSection>
@@ -40,8 +30,13 @@ export function OrderSummary (props) {
                 )
             })}
 
-            <h2>Total: {calculateTotal()}</h2>
-            <button>Confirmar pedido</button>
+            <h2>
+                Total: {total.toLocaleString(
+                'pt-br',
+                { style: 'currency', currency: 'USD' }
+                )}
+            </h2>
+            <button onClick={submitOrder}>Confirmar pedido</button>
         </ContainerSection>
     )
 }
