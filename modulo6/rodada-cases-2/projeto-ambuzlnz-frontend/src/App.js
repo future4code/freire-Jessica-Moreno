@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { ModalSubmit } from "./components/ModalSubmit";
 import { BASE_URL } from "./constants";
 import { OrderSummary } from "./screens/OrdersSumarry";
 import { PizzasMenu } from "./screens/PizzasMenu";
@@ -12,6 +13,14 @@ export const ContainerMain = styled.main`
 function App() {
   const [cart, setCart] = useState([])
   const [total, setTotal] = useState(0)
+  const [orderSubmit, setOrderSubmit] = useState({
+    isActive:false,
+    summary:{
+      id:null,
+      pizzas:null,
+      total: null
+    }
+  })
 
   useEffect(()=>{
     calculateTotal()
@@ -72,10 +81,28 @@ function App() {
           pizzas: cart
         }
         const res = await axios.post(`${BASE_URL}/orders`, body)
-        alert(res.data.order)
+        
+        setOrderSubmit(
+          {
+            isActive:true,
+            summary: res.data.order
+          }) 
+        setCart([])
+
       } catch(err) {
         console.log(err);
       }
+  }
+
+  const closeSubmit = () => {
+    setOrderSubmit({
+      isActive:false,
+      summary:{
+        id:null,
+        pizzas:null,
+        total: null
+      }
+    })
   }
 
   return (
@@ -88,6 +115,13 @@ function App() {
         total = {total}
         submitOrder = {submitOrder}
       />
+      {orderSubmit.isActive 
+        && <ModalSubmit 
+              order = {orderSubmit.summary}
+              closeSubmit={closeSubmit}
+           />      
+      }
+      
     </ContainerMain>
   );
 }
