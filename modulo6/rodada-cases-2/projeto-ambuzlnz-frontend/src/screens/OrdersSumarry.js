@@ -1,14 +1,22 @@
 import styled from "styled-components"
 import { OrderItemCard } from "../components/OrderItemCart"
+import Button from '@mui/material/Button';
 
 export const ContainerSection = styled.section`
     width: 30em;
-    border: 1px solid black;
+    background-color: #F2F2F2;
+    
 
     h1 {
         font-size: 1.5em;
         text-align: center;
     }
+
+    h2 {
+        text-align: center;
+    }
+    
+        
 `
 
 export function OrderSummary(props) {
@@ -36,7 +44,7 @@ export function OrderSummary(props) {
                 { style: 'currency', currency: 'USD' }
                 )}
             </h2>
-            <button onClick={submitOrder}>Confirmar pedido</button>
+            <Button variant="contained" disableElevation onClick={submitOrder}>Confirmar pedido</Button>
         </ContainerSection>
     )
 }

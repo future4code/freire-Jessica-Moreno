@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ModalSubmit } from "./components/ModalSubmit";
 import { BASE_URL } from "./constants";
+import GlobalStyle from "./globalStyles";
 import { OrderSummary } from "./screens/OrdersSumarry";
 import { PizzasMenu } from "./screens/PizzasMenu";
 
 export const ContainerMain = styled.main`
   display:flex;
+  justify-content: space-around;
 `
 
 function App() {
@@ -121,7 +123,7 @@ function App() {
               closeSubmit={closeSubmit}
            />      
       }
-      
+      <GlobalStyle/>
     </ContainerMain>
   );
 }

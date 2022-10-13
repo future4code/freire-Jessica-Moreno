@@ -1,7 +1,14 @@
 import styled from "styled-components"
+import RemoveShoppingCartTwoToneIcon from '@mui/icons-material/RemoveShoppingCartTwoTone';
+import IconButton from '@mui/material/IconButton';
 
 export const ContainerLi = styled.li`
     display: flex;
+    justify-content: space-between;
+    padding: 0 1em ;
+
+    
+    
 `
 
 export function OrderItemCard(props) {
@@ -17,7 +24,7 @@ export function OrderItemCard(props) {
                 )}
                 {" "} x {pizza.quantity}
             </p>
-            <button onClick={() => removeFromCart(pizza)}>Remover item</button>
+            <IconButton ar onClick={() => removeFromCart(pizza)}><RemoveShoppingCartTwoToneIcon/></IconButton>
         </ContainerLi>
     )
 }
